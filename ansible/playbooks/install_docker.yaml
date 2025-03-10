@@ -1,6 +1,6 @@
 ---
 - name: Instalar Docker y Docker Compose
-  hosts: ejer1
+  hosts: servidores
   become: yes
   vars_files:
     - ../vars/variables.yaml
@@ -34,7 +34,7 @@
 
     - name: Instalar Docker
       apt:
-        name: docker-ce={{ docker_version }}
+        name: docker-ce
         state: present
 
     - name: Añadir usuario al grupo de Docker
