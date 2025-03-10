@@ -6,7 +6,8 @@ variable "region" {
 
 variable "ami" {
   description = "La AMI a usar para la instancia"
-  default     = "ami-12345678"  # Reemplaza con el ID de la AMI para Ubuntu Server 24.04
+  default     = "ami-04b4f1a9cf54c11d0"
+
 }
 
 variable "instance_type" {
