@@ -49,5 +49,11 @@
         dest: /usr/local/bin/docker-compose
         mode: '0755'
 
+    - name: Crear un enlace simbólico para Docker Compose
+      file:
+        src: /usr/local/bin/docker-compose
+        dest: /usr/bin/docker-compose
+        state: link
+
     - name: Verificar la instalación de Docker Compose
-      command: docker-compose --version
+      command: /usr/local/bin/docker-compose --version
