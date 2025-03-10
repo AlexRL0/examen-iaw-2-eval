@@ -44,16 +44,11 @@
         append: yes
 
     - name: Descargar Docker Compose
-      get_url:
-        url: "https://github.com/docker/compose/releases/download/{{ docker_compose_version }}/docker-compose-`uname -s`-`uname -m`"
-        dest: /usr/local/bin/docker-compose
-        mode: '0755'
+      command: >
+        sudo curl -L "https://github.com/docker/compose/releases/download/{{ docker_compose_version }}/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 
-    - name: Crear un enlace simbólico para Docker Compose
-      file:
-        src: /usr/local/bin/docker-compose
-        dest: /usr/bin/docker-compose
-        state: link
+    - name: Dar permisos de ejecución a Docker Compose
+      command: sudo chmod +x /usr/local/bin/docker-compose
 
     - name: Verificar la instalación de Docker Compose
       command: /usr/local/bin/docker-compose --version
