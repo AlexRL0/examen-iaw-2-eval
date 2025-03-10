@@ -189,4 +189,8 @@ output "security_group_id" {
 
 # Ejercicio 4
 
-![Ejercicio4](capturas)
+![Ejercicio4](capturas/Ejercicio-4-parte1.png)
+
+![Ejercicio4](capturas/Ejercicio-4-parte1.png)
+
+![Ejercicio4](capturas/Ejercicio-4-parte2.png)
