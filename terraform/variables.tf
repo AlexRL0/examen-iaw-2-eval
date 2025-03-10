@@ -1,26 +1,30 @@
 # Variables
 variable "region" {
-  description = "La región de AWS a usar"
-  default     = "us-west-2"
+  description = "Región de AWS donde se creará la instancia"
+  type        = string
+  default     = "us-east-1"
 }
 
-variable "ami" {
-  description = "La AMI a usar para la instancia"
-  default     = "ami-04b4f1a9cf54c11d0"
+variable "sg_description" {
+  description = "Descripción del grupo de seguridad"
+  type        = string
+  default     = "Grupo de seguridad para la instancia de ejercicio 2"
+}
 
+variable "ami_id" {
+  description = "Identificador de la AMI"
+  type        = string
+  default     = "ami-00874d747dde814fa"  
 }
 
 variable "instance_type" {
-  description = "El tipo de instancia a usar"
+  description = "Tipo de instancia"
+  type        = string
   default     = "t2.medium"
 }
 
 variable "key_name" {
-  description = "El nombre del key pair a usar"
+  description = "Nombre de la clave pública"
+  type        = string
   default     = "vockey"
-}
-
-variable "volume_size" {
-  description = "El tamaño del volumen root en GB"
-  default     = 30
 }

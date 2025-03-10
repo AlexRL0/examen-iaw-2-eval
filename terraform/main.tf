@@ -5,7 +5,7 @@ provider "aws" {
 # Crear el grupo de seguridad: grupo_seguridad_ejercicio_2
 resource "aws_security_group" "grupo_seguridad_ejercicio_2" {
   name        = "grupo_seguridad_ejercicio_2"
-  description = "Grupo de seguridad para el ejercicio 2"
+  description = var.sg_description
 
   # Reglas de entrada
   ingress {
@@ -40,13 +40,13 @@ resource "aws_security_group" "grupo_seguridad_ejercicio_2" {
 
 # Crear la instancia EC2: instancia_ejercicio_2
 resource "aws_instance" "instancia_ejercicio_2" {
-  ami           = var.ami
+  ami           = var.ami_id
   instance_type = var.instance_type
   key_name      = var.key_name
 
   # Configurar el almacenamiento
   root_block_device {
-    volume_size = var.volume_size
+    volume_size = 30
   }
 
   vpc_security_group_ids = [aws_security_group.grupo_seguridad_ejercicio_2.id]
