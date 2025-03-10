@@ -12,9 +12,11 @@ RUN rm -rf /tmp/*
 # Clonar el repositorio de la aplicación web estática
 RUN git clone https://github.com/AlexRL0/Practica-IAW-MkDocs.git /tmp
 
+# Copiar el sitio generado al directorio web
+RUN cp -r /tmp/Practica-IAW-MkDocs/site/* /var/www/html/
+
 RUN cd /tmp && docker run --rm -it -u $(id -u):$(id -g) -v "$PWD":/docs squidfunk/mkdocs-material build
 
-RUN cp /tmp/Practica-IAW-MkDocs/site/* /var/www/html/
 # Exponer el puerto 80
 EXPOSE 80
 
