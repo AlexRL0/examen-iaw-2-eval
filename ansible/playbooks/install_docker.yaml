@@ -1,6 +1,6 @@
 ---
 - name: Instalar Docker y Docker Compose
-  hosts: servidores
+  hosts: ejer2
   become: yes
   vars_files:
     - ../vars/variables.yaml
@@ -44,11 +44,13 @@
         append: yes
 
     - name: Descargar Docker Compose
-      command: >
-        sudo curl -L "https://github.com/docker/compose/releases/download/{{ docker_compose_version }}/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-
+      shell: "curl -L https://github.com/docker/compose/releases/download/{{ docker_compose_version }}/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose"
+      
     - name: Dar permisos de ejecución a Docker Compose
-      command: sudo chmod +x /usr/local/bin/docker-compose
+      file:
+        path: /usr/local/bin/docker-compose
+        mode: '0755'
+        state: file
 
     - name: Verificar la instalación de Docker Compose
       command: /usr/local/bin/docker-compose --version

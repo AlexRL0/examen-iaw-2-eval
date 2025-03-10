@@ -1,5 +1,5 @@
-[ejer1]
-18.208.198.2
+[ejer2]
+54.145.202.3
 
 [all:vars]
 ansible_user=ubuntu
