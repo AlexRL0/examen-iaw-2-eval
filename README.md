@@ -180,3 +180,8 @@ output "security_group_id" {
 ![Ejercicio2](capturas/Ejercicio-2-parte3.png)
 
 ![Ejercicio2](capturas/Ejercicio-2-parte4.png)
+
+
+# Ejercicio 3
+
+
