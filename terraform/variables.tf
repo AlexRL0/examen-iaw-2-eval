@@ -1,24 +1,25 @@
+# Variables
 variable "region" {
-  description = "The AWS region to use"
+  description = "La región de AWS a usar"
   default     = "us-west-2"
 }
 
 variable "ami" {
-  description = "The AMI to use for the instance"
+  description = "La AMI a usar para la instancia"
   default     = "ami-12345678"  # Reemplaza con el ID de la AMI para Ubuntu Server 24.04
 }
 
 variable "instance_type" {
-  description = "The type of instance to use"
+  description = "El tipo de instancia a usar"
   default     = "t2.medium"
 }
 
 variable "key_name" {
-  description = "The name of the key pair to use"
+  description = "El nombre del key pair a usar"
   default     = "vockey"
 }
 
 variable "volume_size" {
-  description = "The size of the root volume in GB"
+  description = "El tamaño del volumen root en GB"
   default     = 30
 }

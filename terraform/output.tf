@@ -1,14 +1,15 @@
+# Salidas
 output "instance_id" {
-  description = "The ID of the instance"
+  description = "El ID de la instancia"
   value       = aws_instance.instancia_ejercicio_2.id
 }
 
 output "public_ip" {
-  description = "The public IP of the instance"
+  description = "La IP pública de la instancia"
   value       = aws_instance.instancia_ejercicio_2.public_ip
 }
 
 output "security_group_id" {
-  description = "The ID of the security group"
+  description = "El ID del grupo de seguridad"
   value       = aws_security_group.grupo_seguridad_ejercicio_2.id
 }
