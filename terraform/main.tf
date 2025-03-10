@@ -5,7 +5,7 @@ provider "aws" {
 # Crear el grupo de seguridad: grupo_seguridad_ejercicio_2
 resource "aws_security_group" "grupo_seguridad_ejercicio_2" {
   name        = "grupo_seguridad_ejercicio_2"
-  description = "Security group for ejercicio 2"
+  description = "Grupo de seguridad para el ejercicio 2"
 
   # Reglas de entrada
   ingress {
