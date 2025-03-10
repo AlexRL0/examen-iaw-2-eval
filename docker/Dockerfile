@@ -1,13 +1,22 @@
-FROM ubuntu:24.04
+# Usar la última versión de Ubuntu como base
+FROM ubuntu:latest
 
-RUN apt update && \
-  apt install nginx -y && \
-  apt install git -y && \
-  rm -rf /var/lib/apt/lists/*
+# Instalar dependencias necesarias
+RUN apt-get update && apt-get install -y nginx git && \
+    rm -rf /var/lib/apt/lists/*
 
-RUN git clone https://github.com/AlexRL0/Practica-IAW-MkDocs.git /app && \
-    mv /app/* /var/www/html/
+# Eliminar el contenido existente en /var/www/html/
+RUN rm -rf /var/www/html/*
+RUN rm -rf /tmp/*
 
+# Clonar el repositorio de la aplicación web estática
+RUN git clone https://github.com/AlexRL0/Practica-IAW-MkDocs.git /tmp
+
+RUN cd /tmp && docker run --rm -it -u $(id -u):$(id -g) -v "$PWD":/docs squidfunk/mkdocs-material build
+
+RUN cp /tmp/Practica-IAW-MkDocs/site/* /var/www/html/
+# Exponer el puerto 80
 EXPOSE 80
 
+# Ejecutar Nginx en primer plano
 CMD ["nginx", "-g", "daemon off;"]
